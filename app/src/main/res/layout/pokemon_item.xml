@@ -15,6 +15,13 @@
     app:layout_constraintTop_toTopOf="parent">
 
 
+    <Button
+        android:id="@+id/btnDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Button"
+        android:visibility="invisible" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
