@@ -45,7 +45,7 @@ Através desta aplicação, os usuários poderão explorar a vasta coleção de 
 ## ⚙️ Funcionalidades
 
 - [x] Visualizar uma Lista vasta de pokemons.
-- [ ] Pesquisar por pokemon (em progesso..)
+- [x] Pesquisar por pokemon (Terminado!)
 - [ ] Descrição detalhada de cada pokemon (em progresso..)
 
 ---

@@ -36,6 +36,10 @@ class MainActivity : AppCompatActivity() {
             .get(PokemonViewModel::class.java)
     }
 
+    private fun scrollToPokemon(position: Int) {
+        recyclerView.smoothScrollToPosition(position)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -58,6 +62,14 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Erro na busca do Pokémon", Toast.LENGTH_SHORT).show()
                 }
             )
+            val pokemonName = textInputEditText.text.toString()
+            val pokemonAdapter = recyclerView.adapter as PokemonAdapter
+            val position =  pokemonAdapter.getPositionOfPokemon(pokemonName)
+            if (position != -1) {
+                scrollToPokemon(position)
+            } else {
+                // Pokemon não encontrado
+            }
         }
     }
 

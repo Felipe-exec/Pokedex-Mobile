@@ -10,6 +10,7 @@ import br.com.fabricadesinapse.pokedex_android.R
 import br.com.fabricadesinapse.pokedex_android.domain.Pokemon
 import com.bumptech.glide.Glide
 
+
 class PokemonAdapter(
     private val items: List<Pokemon?>
 ) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
@@ -27,6 +28,20 @@ class PokemonAdapter(
 
         holder.bindView(item)
     }
+
+    fun getPositionOfPokemon(pokemonName: String): Int {
+        for (i in items.indices) {
+            val pokemon = items[i]
+            if (pokemon != null) {
+                if (pokemon.getName() == pokemonName) {
+                    return i
+                }
+            }
+        }
+        return -1 // Pokemon não encontrado na lista
+    }
+
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(item: Pokemon?) = with(itemView) {//with() é um bloco de contexto!
