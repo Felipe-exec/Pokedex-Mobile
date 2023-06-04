@@ -10,4 +10,13 @@ data class Pokemon(
     val formattedNumber = number.toString().padStart(3, '0')
 
     val imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/$formattedNumber.png"
+
+    @JvmName("getName1")
+    fun getName(): String {
+        return formattedName
+    }
+
+    fun getNumber(): String {
+        return formattedNumber
+    }
 }

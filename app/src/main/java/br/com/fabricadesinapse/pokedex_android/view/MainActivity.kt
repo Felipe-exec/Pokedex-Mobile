@@ -27,13 +27,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     //botão que procura
-    private val Button by lazy{
+    private val buttonSearch by lazy {
         findViewById<Button>(R.id.btnProcura)
     }
 
     private val viewModel by lazy {
         ViewModelProvider(this, PokemonViewModelFactory())
             .get(PokemonViewModel::class.java)
+    }
+
+    private fun scrollToPokemon(position: Int) {
+        recyclerView.smoothScrollToPosition(position)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,17 +49,20 @@ class MainActivity : AppCompatActivity() {
         })
 
         //botão para procurar pokemon!!
-        Button.setOnClickListener {
+        buttonSearch.setOnClickListener {
             PokemonRepository.searchPokemonByName(textInputEditText.text.toString(),
                 onSuccess = { pokemon ->
-                    if (pokemon != null) {
-                        Toast.makeText(this, "Pokémon encontrado!", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this, "Pokémon não encontrado", Toast.LENGTH_SHORT).show()
-                    }
+                    pokemon != null
+                    Toast.makeText(this, "Pokémon encontrado!", Toast.LENGTH_SHORT).show()
+                    //scroll para o pokemon encontrado!!
+                    val pokemonName = textInputEditText.text.toString().toLowerCase()
+                    val pokemonAdapter = recyclerView.adapter as PokemonAdapter
+                    val position =  pokemonAdapter.getPositionOfPokemon(pokemonName)
+
+                    scrollToPokemon(position)
                 },
                 onFailure = {
-                    Toast.makeText(this, "Erro na busca do Pokémon", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Pokémon não encontrado!", Toast.LENGTH_SHORT).show()
                 }
             )
         }
