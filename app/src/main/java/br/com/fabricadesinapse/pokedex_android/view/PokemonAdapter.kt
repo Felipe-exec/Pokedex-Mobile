@@ -44,20 +44,6 @@ class PokemonAdapter(
         return -1 // Pokemon não encontrado na lista
     }
 
-    fun getPositionOfPokemon(pokemonName: String): Int {
-        for (i in items.indices) {
-            val pokemon = items[i]
-            if (pokemon != null) {
-                if (pokemon.getName() == pokemonName) {
-                    return i
-                }
-            }
-        }
-        return -1 // Pokemon não encontrado na lista
-    }
-
-
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         //tenho que consertar isso ainda!
         init {

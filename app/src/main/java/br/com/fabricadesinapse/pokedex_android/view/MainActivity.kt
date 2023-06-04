@@ -65,14 +65,6 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Pokémon não encontrado!", Toast.LENGTH_SHORT).show()
                 }
             )
-            val pokemonName = textInputEditText.text.toString()
-            val pokemonAdapter = recyclerView.adapter as PokemonAdapter
-            val position =  pokemonAdapter.getPositionOfPokemon(pokemonName)
-            if (position != -1) {
-                scrollToPokemon(position)
-            } else {
-                // Pokemon não encontrado
-            }
         }
     }
 
