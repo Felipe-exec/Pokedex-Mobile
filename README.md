@@ -45,10 +45,15 @@ Através desta aplicação, os usuários poderão explorar a vasta coleção de 
 ## ⚙️ Funcionalidades
 
 - [x] Visualizar uma Lista vasta de pokemons.
+<<<<<<< HEAD
 - [x] """melhorei""" o design (ainda não tá bom, parece ate que piorou kkkkk).
 - [x] Pesquisar por pokemon (terminado! mas pode ser melhorado.)
 - [x] criar uma SplashActivity (terminado!)
 - [ ] Descrição detalhada de cada pokemon (em progresso.. complicado..)
+=======
+- [x] Pesquisar por pokemon (Terminado!)
+- [ ] Descrição detalhada de cada pokemon (em progresso..)
+>>>>>>> 061c4892079a8498e3f2cc7e9572dd4aa196c010
 
 ---
 

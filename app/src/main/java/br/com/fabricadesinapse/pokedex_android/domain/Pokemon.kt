@@ -15,8 +15,10 @@ data class Pokemon(
     fun getName(): String {
         return formattedName
     }
+<<<<<<< HEAD
 
     fun getNumber(): String {
         return formattedNumber
     }
+>>>>>>> 061c4892079a8498e3f2cc7e9572dd4aa196c010
 }
