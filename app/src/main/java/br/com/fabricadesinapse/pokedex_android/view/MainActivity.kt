@@ -1,5 +1,6 @@
 package br.com.fabricadesinapse.pokedex_android.view
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -14,6 +15,8 @@ import br.com.fabricadesinapse.pokedex_android.domain.Pokemon
 import br.com.fabricadesinapse.pokedex_android.viewmodel.PokemonViewModel
 import br.com.fabricadesinapse.pokedex_android.viewmodel.PokemonViewModelFactory
 import com.google.android.material.textfield.TextInputEditText
+import android.content.SharedPreferences
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,16 +41,23 @@ class MainActivity : AppCompatActivity() {
 
     private fun scrollToPokemon(position: Int) {
         recyclerView.smoothScrollToPosition(position)
+        sharedPreferences.edit().putInt("lastPosition", position).apply()
     }
+
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val lastPosition = sharedPreferences.getInt("lastPosition", 0)
+
         loadRecyclerView(emptyList())
 
         viewModel.pokemons.observe(this, Observer {
             loadRecyclerView(it)
+            scrollToPokemon(lastPosition)
         })
 
         //botão para procurar pokemon!!
