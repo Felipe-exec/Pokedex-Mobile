@@ -18,7 +18,7 @@
 </h1>
 
 <h4 align="center"> 
-	📱 Pokedex-Mobile 📲 EM PROGRESSO! AINDA NÃO CONCLUÍDO! 📘
+	📱 Pokedex-Mobile 📲 EM PROGRESSO(70%)! 📘
 </h4>
 
 <p align="center">
@@ -45,15 +45,15 @@ Através desta aplicação, os usuários poderão explorar a vasta coleção de 
 ## ⚙️ Funcionalidades
 
 - [x] Visualizar uma Lista vasta de pokemons.
-<<<<<<< HEAD
-- [x] """melhorei""" o design (ainda não tá bom, parece ate que piorou kkkkk).
-- [x] Pesquisar por pokemon (terminado! mas pode ser melhorado.)
-- [x] criar uma SplashActivity (terminado!)
-- [ ] Descrição detalhada de cada pokemon (em progresso.. complicado..)
-=======
-- [x] Pesquisar por pokemon (Terminado!)
-- [ ] Descrição detalhada de cada pokemon (em progresso..)
->>>>>>> 061c4892079a8498e3f2cc7e9572dd4aa196c010
+- [x] "melhorar" o design.
+- [x] Pesquisar por pokemon (terminado, *mas pode ser melhorado*).
+- [x] criar uma SplashActivity (terminado).
+
+
+- [ ] A Descrição detalhada de cada pokemon não está do jeito que queria. É necessário atribuir as responsabilidades corretas à classe *DetailActivity.kt* que está *TOTALMENTE FORA* de senso com o projeto, entrando em desacordo com as boas práticas de programação
+- [ ] Está demorando *MUUITO* para carregar os pokemons, em vez de carregar um monte deles de uma vez, poderia ter um sistema de carregamento de acordo com a rolagem.
+- [ ] Criar uma aba de pokemons favoritos e todo um sistema de salvamento com *SharedPreferences*.
+- [ ] A página de detalhes do pokemon poderia ser estilizada de acordo com o pokemon né? Se for do tipo fogo, o tema poderia ser vermelho..
 
 ---
 
