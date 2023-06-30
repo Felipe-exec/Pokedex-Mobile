@@ -1,6 +1,7 @@
 package br.com.fabricadesinapse.pokedex_android.view
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -34,6 +35,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnProcura)
     }
 
+    private val buttonFavorite by lazy {
+        findViewById<Button>(R.id.btnFavoritos)
+    }
+
     private val viewModel by lazy {
         ViewModelProvider(this, PokemonViewModelFactory())
             .get(PokemonViewModel::class.java)
@@ -59,6 +64,12 @@ class MainActivity : AppCompatActivity() {
             loadRecyclerView(it)
             scrollToPokemon(lastPosition)
         })
+
+        //ir para favoritos
+        buttonFavorite.setOnClickListener {
+            val intent = Intent(this, FavoriteActivity::class.java)
+            startActivity(intent)
+        }
 
         //botão para procurar pokemon!!
         buttonSearch.setOnClickListener {

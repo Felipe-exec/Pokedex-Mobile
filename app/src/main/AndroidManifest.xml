@@ -30,6 +30,13 @@
             android:windowSoftInputMode="adjustPan"
             android:label="DetailActivity">
         </activity>
+
+        <activity
+            android:name=".view.FavoriteActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:label="FavoriteActivity">
+        </activity>
+
     </application>
 
 </manifest>

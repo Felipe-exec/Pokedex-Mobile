@@ -1,6 +1,8 @@
 package br.com.fabricadesinapse.pokedex_android.view
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +32,21 @@ class DetailActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.salvarPokemon)
     }
 
+    private val pokemonIdsList = mutableListOf<Int>()
+
+    private fun loadSavedPokemonIds(): List<Int> {
+        val sharedPreferences = getSharedPreferences("FavoriteActivity", Context.MODE_PRIVATE)
+        val savedPokemonIdsSet = sharedPreferences.getStringSet("savedPokemonIds", emptySet())
+        return savedPokemonIdsSet?.mapNotNull { it.toIntOrNull() } ?: emptyList()
+    }
+
+    private fun savePokemonIds(savedPokemonIds: List<Int>) {
+        val sharedPreferences = getSharedPreferences("FavoriteActivity", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putStringSet("savedPokemonIds", savedPokemonIds.map { it.toString() }.toSet())
+        editor.apply()
+    }
+
     //Não era pra isso estar aqui----------------------
     private lateinit var tvNameDetail: TextView
     private lateinit var tvWeightDetail: TextView
@@ -50,15 +67,11 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+        val savedPokemonIds = loadSavedPokemonIds()
+
         //botão para voltar!!
         buttonVoltar.setOnClickListener {
             finish()
-        }
-
-        //botão para salvar!
-        buttonSalvar.setOnClickListener {
-            buttonSalvar.setImageResource(R.drawable.pokeball)
-            Toast.makeText(this, "Botão de salvar em desenvolvimento!", Toast.LENGTH_SHORT).show()
         }
 
         //Não era pra isso estar aqui--------------------------------------------
@@ -93,6 +106,17 @@ class DetailActivity : AppCompatActivity() {
         // Obtém o ID do Pokémon selecionado da intent (talvez em *PokemonAdapter*?)
         val pokemonId = intent.getIntExtra("pokemonNumber", 1)
         //-------------------------------------------------------------------------
+
+        //botão para salvar!
+        buttonSalvar.setOnClickListener {
+            buttonSalvar.setImageResource(R.drawable.pokeball)
+            Toast.makeText(this, "Pokemon Salvo!", Toast.LENGTH_SHORT).show()
+
+            pokemonIdsList.addAll(savedPokemonIds) // Adiciona os IDs existentes à lista
+            pokemonIdsList.add(pokemonId) // Adiciona o novo ID do Pokémon
+
+            savePokemonIds(pokemonIdsList) // Salva a lista atualizada
+        }
 
 
 
