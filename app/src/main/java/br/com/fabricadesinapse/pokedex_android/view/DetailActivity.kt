@@ -3,9 +3,12 @@ package br.com.fabricadesinapse.pokedex_android.view
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import br.com.fabricadesinapse.pokedex_android.R
 import br.com.fabricadesinapse.pokedex_android.domain.PokemonDetail
 import com.squareup.picasso.Picasso
@@ -61,11 +64,13 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var tvSpeedDetail: TextView
     private lateinit var ivPokemonDetail: ImageView
     private lateinit var apiService: PokemonApiService
+    private lateinit var rootView: View
     //---------------------------------------------------
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+        rootView = findViewById(R.id.main_layout)
 
         val savedPokemonIds = loadSavedPokemonIds()
 
@@ -128,6 +133,7 @@ class DetailActivity : AppCompatActivity() {
 
     //Okay, isso definitivamente não era para estar aqui (acho que caberia em PokemonRepository!)
     private fun getPokemonDetails(pokemonId: Int) {
+        var endColor: Int = R.color.defaultEndColor
         apiService.getPokemonDetails(pokemonId).enqueue(object : Callback<PokemonDetail> {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<PokemonDetail>, response: Response<PokemonDetail>) {
@@ -152,6 +158,31 @@ class DetailActivity : AppCompatActivity() {
                             val speed = stats[5].baseStat
                             val spriteUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png"
 
+
+                            // Atribui o valor "endColor" de acordo com o tipo do Pokemon
+                            endColor = when (type1Name) {
+                                "bug"      -> R.color.bugEndColor
+                                "dark"     -> R.color.darkEndColor
+                                "dragon"   -> R.color.dragonEndColor
+                                "electric" -> R.color.electricEndColor
+                                "fighting" -> R.color.fightingEndColor
+                                "flying"   -> R.color.flyingEndColor
+                                "ghost"    -> R.color.ghostEndColor
+                                "grass"    -> R.color.grassEndColor
+                                "ground"   -> R.color.groundEndColor
+                                "ice"      -> R.color.iceEndColor
+                                "normal"   -> R.color.normalEndColor
+                                "poison"   -> R.color.poisonEndColor
+                                "psychic"  -> R.color.psychicEndColor
+                                "rock"     -> R.color.rockEndColor
+                                "steel"    -> R.color.steelEndColor
+                                "water"    -> R.color.waterEndColor
+                                "fairy"    -> R.color.fairyEndColor
+                                "fire"     -> R.color.fireEndColor
+                                // Adicione outros tipos de Pokémon e suas cores correspondentes aqui
+                                else -> R.color.defaultEndColor
+                            }
+
                             // Atualiza os elementos da UI com os dados do Pokémon
                             tvNameDetail.text = name
                             tvWeightDetail.text = "Weight: $weightDividedBy10 kg"
@@ -167,6 +198,9 @@ class DetailActivity : AppCompatActivity() {
 
                             // Carrega a imagem do Pokémon usando a biblioteca Picasso
                             Picasso.get().load(spriteUrl).into(ivPokemonDetail)
+
+                            // Altera o gradiente do background da atividade de acordo com o tipo do Pokémon
+                            changeBackgroundGradient(endColor)
                         } catch (e: JSONException) {
                             e.printStackTrace()
                         }
@@ -181,6 +215,18 @@ class DetailActivity : AppCompatActivity() {
     }
     //-----------------------------------------------------------------------------------------------
 
+
+    private fun changeBackgroundGradient(endColor: Int) {
+        val startColor = ContextCompat.getColor(this, R.color.azulPokemon) // Cor de fim do gradiente (se necessário)
+        val endColorResolved = ContextCompat.getColor(this, endColor)
+
+        val gradientDrawable = GradientDrawable(
+            GradientDrawable.Orientation.TOP_BOTTOM,
+            intArrayOf(startColor, endColorResolved)
+        )
+
+        rootView.background = gradientDrawable
+    }
 
     // Define a interface do serviço da API (Isso é papel de PokemonService)
     interface PokemonApiService {
