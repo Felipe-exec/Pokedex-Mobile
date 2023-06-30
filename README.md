@@ -26,8 +26,7 @@
  <a href="#%EF%B8%8F-funcionalidades">Funcionalidades</a> •
  <a href="#-como-executar-o-projeto">Como executar</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
- <a href="#-autores">Autores</a> • 
- <a href="#-licença">Licença</a>
+ <a href="#-autores">Autores</a> 
 </p>
 
 ## 💻 Sobre o projeto
@@ -48,12 +47,12 @@ Através desta aplicação, os usuários poderão explorar a vasta coleção de 
 - :heavy_check_mark: "melhorar" o design.
 - :heavy_check_mark: Pesquisar por pokemon (terminado, *mas pode ser melhorado*).
 - :heavy_check_mark: criar uma SplashActivity (terminado).
-- :heavy_check_mark: Criar uma aba de pokemons favoritos e todo um sistema de salvamento com *SharedPreferences*.
+- :heavy_check_mark: Criar uma aba de pokemons favoritos e todo um sistema de salvamento com *SharedPreferences*. [Agradecimentos ao https://github.com/JoaoLucasMaster pela ajuda!]
+- :heavy_check_mark: A página de detalhes do pokemon poderia ser estilizada de acordo com o pokemon né? Se for do tipo fogo, o tema poderia ser vermelho.. [Agradecimentos ao https://github.com/JoaoPedroPPS pela ajuda!]
 
 
 - :x: A Descrição detalhada de cada pokemon não está do jeito que queria. É necessário atribuir as responsabilidades corretas à classe *DetailActivity.kt* que está *TOTALMENTE FORA* de senso com o projeto, entrando em desacordo com as boas práticas de programação. OBS: O projeto está uma total bagunça, está fora de ordem em sua grande maioria, necessitaria de um desenvolvedor mais experiente para a refatoração... no meu estado atual de conhecimento eu não conseguiria refatorar as classes nem que a vaca tussa.
 - :x: Está demorando *MUUITO* para carregar os pokemons, em vez de carregar um monte deles de uma vez, poderia ter um sistema de carregamento de acordo com a rolagem.
-- :x: A página de detalhes do pokemon poderia ser estilizada de acordo com o pokemon né? Se for do tipo fogo, o tema poderia ser vermelho..
 
 ---
 
@@ -70,7 +69,7 @@ Foi utilizada a ferramenta Android Studio e a PokeAPI [https://pokeapi.co]
 <a href="https://github.com/FabricaDeSinapse">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/66227147?v=4" width="100px;" alt=""/>
  <br />
- <sub><b>Paulo Salvatore</b></sub></a> <a href="https://github.com/FabricaDeSinapse" title="GitHub perfil">😎</a>
+ <sub><b>Paulo Salvatore</b></sub></a> <a href="https://github.com/FabricaDeSinapse" title="GitHub perfil">😎🐱‍👤</a>
  
  <br />
  <br />
@@ -90,5 +89,5 @@ Foi utilizada a ferramenta Android Studio e a PokeAPI [https://pokeapi.co]
  <a href="https://www.instagram.com/felipe_mzss/" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
  <a href = "mailto:mzssacramento@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
  <a href="https://www.linkedin.com/in/felipe-sacramento-8a03ba212/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
- 
+
 ---
