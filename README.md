@@ -51,7 +51,7 @@ Através desta aplicação, os usuários poderão explorar a vasta coleção de 
 - :heavy_check_mark: A página de detalhes do pokemon poderia ser estilizada de acordo com o pokemon né? Se for do tipo fogo, o tema poderia ser vermelho.. [Agradecimentos ao https://github.com/JoaoPedroPPS pela ajuda!]
 
 - :x: Faltando botão de deletar pokemon dos favoritos.
-- :x: A Descrição detalhada de cada pokemon não está do jeito que queria. É necessário atribuir as responsabilidades corretas à classe *DetailActivity.kt* que está *TOTALMENTE FORA* de senso com o projeto, entrando em desacordo com as boas práticas de programação. OBS: O projeto está uma total bagunça, está fora de ordem em sua grande maioria, necessitaria de um desenvolvedor mais experiente para a refatoração... no meu estado atual de conhecimento eu não conseguiria refatorar as classes nem que a vaca tussa.
+- :x: A Descrição detalhada de cada pokemon não está do jeito que queria. É necessário atribuir as responsabilidades corretas à classe *DetailActivity.kt*, entrando em desacordo com as boas práticas de programação, necessitaria de um desenvolvedor mais experiente para a refatoração... no meu estado atual de conhecimento eu não conseguiria refatorar as classes.
 - :x: Está demorando *MUUITO* para carregar os pokemons, em vez de carregar um monte deles de uma vez, poderia ter um sistema de carregamento de acordo com a rolagem.
 
 ---
